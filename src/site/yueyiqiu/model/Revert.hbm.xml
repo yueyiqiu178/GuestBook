@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/9/20 ?U?? 07:53:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="site.yueyiqiu.model.Revert" table="tb_revert">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
+        <property name="replytime" type="java.util.Date">
+            <column name="reverttime" />
+        </property>
+        <one-to-one name="message" class="site.yueyiqiu.model.Message" property-ref="reply"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/9/20 ?U?? 07:53:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="site.yueyiqiu.model.Message" table="tb_message">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="title" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
+        <property name="createtime" type="java.util.Date">
+            <column name="createtime" />
+        </property>
+        <many-to-one name="reply" class="site.yueyiqiu.model.Revert" cascade="all" unique="true" lazy="false">
+        <column name="revert"></column>
+        </many-to-one>
+        <many-to-one name="user" class="site.yueyiqiu.model.User" fetch="join" lazy="false">
+            <column name="userid" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
